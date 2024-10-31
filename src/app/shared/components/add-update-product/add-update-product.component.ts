@@ -48,12 +48,12 @@ export class AddUpdateProductComponent  implements OnInit {
   // ===== Crear Productos ========= //
   async createProduct(){
 
-    let path = `users/${this.user.uid}/products`
+    let path = `users/${this.user.id}/products`
     const loading = await this.utilsSvc.loading()
     await loading.present();
     // ========= Subir Imagen y obtener la url ========= //
     let dataUrl = this.form.value.image;
-    let imagePath = `${this.user.uid}/${Date.now()}`;
+    let imagePath = `${this.user.id}/${Date.now()}`;
     let imageUrl = await this.firebaseSvc.upLoadImage(imagePath, dataUrl);
     this.form.controls.image.setValue(imageUrl);
     delete this.form.controls.id;
@@ -84,7 +84,7 @@ export class AddUpdateProductComponent  implements OnInit {
   // ===== Actualizar Productos ========= //
   async updateProduct(){
 
-    let path:string = `users/${this.user.uid}/products/${this.product.id}`
+    let path:string = `users/${this.user.id}/products/${this.product.id}`
     const loading = await this.utilsSvc.loading()
     await loading.present();
     if (this.form.value.image !== this.product.image) {

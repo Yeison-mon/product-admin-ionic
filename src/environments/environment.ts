@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiUrl: 'http://127.0.0.1:8000/api',
   firebaseConfig :{
     apiKey: "AIzaSyA96sKVE7AM6KFYZeQpzWOKvT3ccHENihI",
     authDomain: "product-admin-app-ed8bd.firebaseapp.com",

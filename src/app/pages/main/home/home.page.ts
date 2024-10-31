@@ -58,7 +58,7 @@ export class HomePage implements OnInit {
     return this.products.reduce((index, product) => index + product.price * product.soldUnits, 0);
   }
   getProducts(){
-    let path = `users/${this.user().uid}/products`
+    let path = `users/${this.user().id}/products`
     let query = [
       //where('soldUnits', '>', 30),
       orderBy('soldUnits', 'desc')]
@@ -85,7 +85,7 @@ export class HomePage implements OnInit {
   // ===== Eliminar Productos ========= //
   async deleteProduct(product:Product){
 
-    let path:string = `users/${this.user().uid}/products/${product.id}`
+    let path:string = `users/${this.user().id}/products/${product.id}`
     const loading = await this.utilsSvc.loading()
     await loading.present();
     let imagePath = await this.firebaseSvc.getFilePath(product.image);

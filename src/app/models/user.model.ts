@@ -1,7 +1,14 @@
 export interface User {
-  uid: string;
+  id: number;
+  nomusu: string;
+  clave: string;
+  nombrecompleto: string;
+  estado: string;
+  cargo: string;
   email: string;
-  password: string;
-  name: string;
+  ip: string;
+  mac: string;
+  correoenvio: string;
+  clavecorreo: string;
   image: string;
 }

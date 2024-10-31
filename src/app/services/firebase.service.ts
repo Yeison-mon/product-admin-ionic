@@ -29,11 +29,11 @@ export class FirebaseService {
   }
   // =========== Iniciar sesión =========== //
   signIn(user:User) {
-    return signInWithEmailAndPassword(getAuth(), user.email, user.password)
+    return signInWithEmailAndPassword(getAuth(), user.email, user.clave)
   }
   // =========== Crear Usuario =========== //
   signUp(user:User) {
-    return createUserWithEmailAndPassword(getAuth(), user.email, user.password)
+    return createUserWithEmailAndPassword(getAuth(), user.email, user.clave)
   }
 
   // =========== Actualizar Usuario =========== //

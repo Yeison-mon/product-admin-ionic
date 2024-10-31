@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 // ------- Firebase ------- //
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,9 @@ import {environment} from "../environments/environment";
     BrowserModule,
     IonicModule.forRoot({mode:'md'}),
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)],
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    HttpClientModule,
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

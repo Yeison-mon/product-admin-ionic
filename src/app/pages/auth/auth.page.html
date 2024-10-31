@@ -4,25 +4,24 @@
     <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
       <app-logo></app-logo>
       <!-- Email -->
-      <app-custom-input icon="mail-outline"
-                        autocomplete="email"
-                        [control]="form.controls.email"
-                        type="email"
-                        label="Correo"
+      <app-custom-input icon="person-outline"
+                        autocomplete="nomusu"
+                        [control]="form.controls.nomusu"
+                        type="text"
+                        label="Usuario"
       ></app-custom-input>
-      <div class="validators" *ngIf="form.controls.email.errors && !form.controls.email.untouched">
-        <div *ngIf="form.controls.email.errors?.['required']">El correo es requerido</div>
-        <div *ngIf="form.controls.email.errors?.['email']">Ingrese un correo válido</div>
+      <div class="validators" *ngIf="form.controls.nomusu.errors && !form.controls.nomusu.untouched">
+        <div *ngIf="form.controls.nomusu.errors?.['required']">El usuario es requerido</div>
       </div>
       <!-- Password -->
       <app-custom-input icon="lock-closed-outline"
-                        [control]="form.controls.password"
+                        [control]="form.controls.clave"
                         autocomplete="password"
                         type="password"
                         label="Contraseña"
       ></app-custom-input>
-      <div class="validators" *ngIf="form.controls.password.errors && !form.controls.password.untouched">
-        <div *ngIf="form.controls.password.errors?.['required']">La contraseña es requerida</div>
+      <div class="validators" *ngIf="form.controls.clave.errors && !form.controls.clave.untouched">
+        <div *ngIf="form.controls.clave.errors?.['required']">La contraseña es requerida</div>
       </div>
       <p class="ion-text-end" routerLink="forgot-password">¿Olvidaste tu contraseña?</p>
       <ion-button expand="block" class="submit" type="submit" [disabled]="form.invalid">

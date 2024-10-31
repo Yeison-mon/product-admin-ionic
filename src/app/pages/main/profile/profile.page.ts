@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {UtilsService} from "../../../services/utils.service";
 import {FirebaseService} from "../../../services/firebase.service";
 import {User} from "../../../models/user.model";
@@ -8,7 +8,7 @@ import {User} from "../../../models/user.model";
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
 })
-export class ProfilePage implements OnInit {
+export class ProfilePage  {
 
   utilsSvc = inject(UtilsService);
   firebaseSvc = inject(FirebaseService);
@@ -20,9 +20,9 @@ export class ProfilePage implements OnInit {
   async takeImage(){
     let user = this.user();
     const dataUrl = (await this.utilsSvc.takePicture('Foto de Perfil')).dataUrl;
-    let imagePath = `${user.uid}/profile`;
+    let imagePath = `${user.id}/profile`;
     user.image = await this.firebaseSvc.upLoadImage(imagePath, dataUrl);
-    let path:string = `users/${user.uid}`
+    let path:string = `users/${user.id}`
     const loading = await this.utilsSvc.loading()
     await loading.present();
     this.firebaseSvc.updateDocument(path, {image : user.image}).then(async res => {
@@ -48,7 +48,6 @@ export class ProfilePage implements OnInit {
 
     })
   }
-  ngOnInit() {
-  }
+
 
 }
